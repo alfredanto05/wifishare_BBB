@@ -21,16 +21,20 @@
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/Theme.Wifishare">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <!-- Catches our MIME type pushed phone-to-phone via Android Beam (API < 29)
+                 AND any future NDEF tap with this MIME type -->
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="application/vnd.com.example.wifishare" />
             </intent-filter>
+
         </activity>
     </application>
 
